@@ -81,6 +81,8 @@ class InternationalPhoneNumberInput extends StatefulWidget {
 
   final List<String> countries;
 
+  final Color backgroundColor;
+
   InternationalPhoneNumberInput(
       {Key key,
       this.selectorConfig = const SelectorConfig(),
@@ -118,7 +120,8 @@ class InternationalPhoneNumberInput extends StatefulWidget {
       this.focusNode,
       this.cursorColor,
       this.autofillHints,
-      this.countries})
+      this.countries,
+      this.backgroundColor})
       : super(key: key);
 
   @override
@@ -377,6 +380,9 @@ class _InputWidgetView
     final dialCode = state?.country?.dialCode ?? '';
 
     return Container(
+      decoration: BoxDecoration(
+          color: widget.backgroundColor,
+          borderRadius: BorderRadius.circular(4)),
       child: Row(
         textDirection: TextDirection.ltr,
         mainAxisAlignment: MainAxisAlignment.start,
